@@ -16,9 +16,14 @@ The baseline reproduces the three-pole route from source task 7.7 in the reposit
 
 ## Quick Start
 
-Run these commands from the repository root. Before training, download the [task 7.7 warmup checkpoint](https://drive.google.com/file/d/1PmM1NoD09gKIwzqlj3-rCeQRdffVutjJ/view?usp=sharing) and register it at the path shown in the [asset and reproduction guide](../../docs/pole-weaving.md). The smoke run performs one update and writes `latest.pt` for checking model loading and headless playback; it is not intended to train a policy that meets task metrics. The model is saved under `logs/q1-pole-weaving/run-<timestamp>/latest.pt`; a full run usually also produces `best.pt`. Evaluation and playback do not require the warmup file.
+Run these commands from the repository root. Before training, download the [warmup checkpoint](https://drive.google.com/file/d/1PmM1NoD09gKIwzqlj3-rCeQRdffVutjJ/view?usp=sharing) and register it at the path shown in the [asset and reproduction guide](../../docs/pole-weaving.md). The smoke run performs one update and writes `latest.pt` for checking model loading and headless playback; it is not intended to train a policy that meets task metrics. The model is saved under `logs/q1-pole-weaving/run-<timestamp>/latest.pt`; a full run usually also produces `best.pt`. Evaluation and playback do not require the warmup file.
 
 ```bash
+pip install gdown
+
+mkdir -p courses/pole-weaving/pole_task/assets/checkpoints/
+gdown 1PmM1NoD09gKIwzqlj3-rCeQRdffVutjJ -O courses/pole-weaving/pole_task/assets/checkpoints/
+
 # Read-only preflight: hashes data and source assets, strictly loads the warmup checkpoint,
 # parses the source configuration, and checks hardware. Does not create a run directory.
 python -m pole_task.training --preflight-only --config courses/pole-weaving/pole_task/config.json
@@ -43,6 +48,7 @@ python -m pole_task.play \
   --checkpoint logs/q1-pole-weaving/run-<timestamp>/best.pt --case nominal-01
 
 # Play five times; the random seed increments from 20261103.
+# -<timestamp> need to be replace with real name
 python -m pole_task.play \
   --checkpoint logs/q1-pole-weaving/run-<timestamp>/best.pt \
   --case nominal-01 --gui --seed 20261103 --loops 5

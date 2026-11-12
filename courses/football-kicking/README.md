@@ -9,7 +9,14 @@ This course provides a vision-based Q1 soccer policy training baseline. It cover
 ## First Run
 
 Set up the environment using the [shared environment setup guide](../../docs/setup.md) (currently in Chinese). Smoke training requires the [soccer expert checkpoint](https://drive.google.com/file/d/1Hb_vHlk4TK_Y8A7NvUUSi5kduLvhXu7P/view?usp=sharing); full training also requires the complete successful-trajectory dataset. These assets are not distributed in Git. Download the expert weights to `shared/supermimic/expert/checkpoints/model_17800.pth` before running the smoke workflow below. See [Preparing Resources](#preparing-resources) for details.
+```bash
+pip install gdown
 
+mkdir -p shared/supermimic/expert/checkpoints/
+gdown 1Hb_vHlk4TK_Y8A7NvUUSi5kduLvhXu7P -O shared/supermimic/expert/checkpoints/
+
+
+```
 Run these commands from the repository root. First collect four short training episodes with the teacher model, then start a small training run:
 
 ```bash

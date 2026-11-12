@@ -17,8 +17,8 @@ S 形路线。它有独立且与源任务兼容的观测、奖励、重置、终
 
 ```bash
 mkdir -p courses/pole-weaving/pole_task/assets/checkpoints
-cp /path/to/checkpoint_2000.pt courses/pole-weaving/pole_task/assets/checkpoints/source-task-7.7-warmup.pt
-sha256sum courses/pole-weaving/pole_task/assets/checkpoints/source-task-7.7-warmup.pt
+cp /path/to/checkpoint_2000.pt courses/pole-weaving/pole_task/assets/checkpoints/warmup-checkpoint_2000.pt
+sha256sum courses/pole-weaving/pole_task/assets/checkpoints/warmup-checkpoint_2000.pt
 ```
 
 文件的 SHA-256 必须为
@@ -31,7 +31,7 @@ sha256sum courses/pole-weaving/pole_task/assets/checkpoints/source-task-7.7-warm
 
 | 资产 | 登记路径 | 用途 |
 | --- | --- | --- |
-| `warmup_checkpoint` | `courses/pole-weaving/pole_task/assets/checkpoints/source-task-7.7-warmup.pt` | 严格用于训练初始化；通过邮件索取 |
+| `warmup_checkpoint` | `courses/pole-weaving/pole_task/assets/checkpoints/warmup-checkpoint_2000.pt` | 严格用于训练初始化；通过邮件索取 |
 | `passed_final_checkpoint_reference` | 源任务 7.7 最终 checkpoint 的哈希 | 仅记录来源；不需要该文件 |
 | `warmup_config`, `actor_config` | `courses/pole-weaving/pole_task/data/source-configs/` | 本地训练配置快照 |
 | `robot_xml` | `shared/q1-mujoco/resources/q1_description/source_task_7_7/q1_v3_mc.xml` | 本地源机器人模型 |

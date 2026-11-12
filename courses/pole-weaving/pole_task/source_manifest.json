@@ -107,7 +107,7 @@
   "artifacts": [
     {
       "id": "warmup_checkpoint",
-      "path": "courses/pole-weaving/pole_task/assets/checkpoints/source-task-7.7-warmup.pt",
+      "path": "courses/pole-weaving/pole_task/assets/checkpoints/warmup-checkpoint_2000.pt",
       "sha256": "b27dabb8c1f1698b669f7dcb59b5b08f1655a7a43f85b57b2686f76096a224f5",
       "use": "strict_training_initialization",
       "required_for": ["training"]
